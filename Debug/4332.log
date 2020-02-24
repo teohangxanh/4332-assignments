@@ -1,0 +1,25 @@
+﻿  game.cpp
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(43,16): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(43,13): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(44,20): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(44,15): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(45,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(45,15): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(46,18): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(46,13): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(101,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(124,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(124,30): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(124,17): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(124,10): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(135,49): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(135,36): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(135,19): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(135,10): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\game.cpp(142,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(34,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(53,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(81,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+  Generating Code...
+  4332.vcxproj -> C:\Users\Teo\Documents\GitHub\Snake_game\Debug\4332.exe
