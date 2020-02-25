@@ -6,6 +6,8 @@
 
 extern int score;
 extern bool gameOver;
+bool food = true;
+bool enigma = true;
 extern double speed;
 short sDirection = RIGHT; // Default direction
 int gridX, gridY;
@@ -14,9 +16,7 @@ int posX[MAX] = { 20 }, posY[MAX] = { 20 };
 int foodX, foodY;
 int enigmaX, enigmaY;
 int lucky_number;
-bool food = true;
 
-bool enigma = true;
 void initGrid(int x, int y) {
 	gridX = x;
 	gridY = y;
@@ -87,7 +87,6 @@ void drawSnake() {
 	//When the snake eats food
 	if (foodX == posX[0] && foodY == posY[0]) {	
 		speed *= 0.95;
-		score++;
 		snake_length++;
 		if (snake_length > MAX) {
 			snake_length = MAX;
@@ -98,17 +97,23 @@ void drawSnake() {
 
 	//When the snake gets enigma
 	if (enigmaX == posX[0] && enigmaY == posY[0]) {
-		srand(time(NULL));
+		//srand(time(NULL));
 		lucky_number = rand() % 2;
 		// You are lucky to double your score
 		if (lucky_number == 1) {
-			score *= 2;
+			snake_length *= 2;
+			if (snake_length > MAX) {
+				snake_length = MAX;
+			}
 		}
 		// You are unlucky to half your score, if your score == 1, you die
 		else {
-			if (score < 2) gameOver = true;
-			else score = score / 2;
+			if (snake_length > 2) {
+				snake_length /= 2;
+			}
+			else gameOver = true;
 		}
+		enigma = true;
 		drawEnigma();
 	}
 }
@@ -117,6 +122,7 @@ void drawSnake() {
 void drawFood() {
 	if (food) //Food has to be reset
 	{
+		//srand(time(NULL));
 		random(foodX, foodY);
 	}
 	food = false;

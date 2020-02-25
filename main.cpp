@@ -11,7 +11,6 @@ Descsription: The program creates a snake game
 
 extern short sDirection;
 extern int snake_length;
-int score = 0;
 bool gameOver = false;
 double speed = 100;
 
@@ -54,20 +53,17 @@ int main(int argc, char** argv) {
 	glutSpecialFunc(keyboard_callback); //  sets the special keyboard callback for the current window.
 	glutMainLoop(); // Displays everything and wait
 	return(0);
-
 }
 
 void display_callBack() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	drawGrid();
-	drawEnigma();
 	drawSnake();
+	//drawEnigma();
 	drawFood();
 	glutSwapBuffers(); // swaps the buffers of the current window if double buffered
-	if (gameOver) // Displays message box after the game is over 
-	{
-		MessageBox(NULL, L"your score:", L"...", MB_OK);
-		exit(0);
+	if (gameOver) {
+		MessageBox(NULL, L"You die", L"Game over", 0);
 	}
 }
 
@@ -79,7 +75,6 @@ void reshape_callback(int w, int h) {
 void timer_callback(int) {
 	glutPostRedisplay(); // marks the current window as needing to be redisplayed.
 	glutTimerFunc(speed, timer_callback, 0);
-	//if (snake_length >= 2) speed *= 0.95;
 }
 
 void keyboard_callback(int key, int, int) {
