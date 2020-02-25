@@ -17,11 +17,23 @@ int foodX, foodY;
 int enigmaX, enigmaY;
 int lucky_number;
 
+/*******************************************************************************************
+function: initGrid
+purpose: Create grid
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void initGrid(int x, int y) {
 	gridX = x;
 	gridY = y;
 }
 
+/*******************************************************************************************
+function: drawGrid
+purpose: Sets the playground for the game
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void drawGrid() {
 	for (int i = 0; i < gridX; i++) {
 		for (int j = 0; j < gridY; j++) {
@@ -30,6 +42,12 @@ void drawGrid() {
 	}
 }
 
+/*******************************************************************************************
+function: unit
+purpose: Oustand the playground's border
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void unit(int x, int y) {
 	if (x == 0 || y == 0 || x == gridX - 1 || y == gridY - 1) {
 		glLineWidth(3.0); // sets the width of the line
@@ -47,7 +65,13 @@ void unit(int x, int y) {
 	glEnd();
 }
 
-
+/*******************************************************************************************
+function: drawSnake
+purpose: Draw snake and handle cases when the snake eats food, collides with its body, 
+		 touches window edges, etc.
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void drawSnake() {
 	for (int i = snake_length - 1; i > 0; i--) {
 		posX[i] = posX[i - 1];
@@ -118,7 +142,12 @@ void drawSnake() {
 	}
 }
 
-
+/*******************************************************************************************
+function: drawFood
+purpose: Draw food
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void drawFood() {
 	if (food) //Food has to be reset
 	{
@@ -130,7 +159,12 @@ void drawFood() {
 	glRectf(foodX, foodY, foodX + 1, foodY + 1);
 }
 
-
+/*******************************************************************************************
+function: drawEnigma
+purpose: Draw enigma
+Author: Ted Dang
+ Date: 2/21/2020
+ *********************************************************************************************/
 void drawEnigma() {
 	if (enigma) // Enigma has to be reset 
 	{
