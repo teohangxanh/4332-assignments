@@ -9,14 +9,15 @@ Descsription: The program creates a snake game
 #define ROWS 40
 #define FPS 10
 
+extern int score;
 extern short sDirection;
 extern int snake_length;
 bool gameOver = false;
-double speed = 100;
+double speed = 50;
 
 #include <Windows.h>
-#include <GL/gl.h>
-#include <GL/glut.h>
+//#include <GL/gl.h>
+#include <GL/freeglut.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -59,7 +60,12 @@ void display_callBack() {
 	drawFood();
 	glutSwapBuffers(); // swaps the buffers of the current window if double buffered
 	if (gameOver) {
-		MessageBox(NULL, L"You die", L"Game over", 0);
+		char scores[10];
+		_itoa_s(score, scores, 10);
+		char notify[50] = "Your score: ";
+		strcat_s(notify, scores);
+		MessageBox(NULL, notify, "Game over", 0);
+		exit(0);
 	}
 }
 
@@ -126,7 +132,7 @@ int main(int argc, char** argv) {
 	glutInit(&argc, argv); // Initialize GLUT
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Sets display mode
 	glutInitWindowPosition(50, 100); // Sets top-left display-window position
-	glutInitWindowSize(800, 800); // Sets display-window width and height
+	glutInitWindowSize(500, 500); // Sets display-window width and height
 	glutCreateWindow("Course: 4332. Student name: Nghia Dang. Assignment 02"); // Creates display window
 	init(); // Executes initialization procedure
 	glutDisplayFunc(display_callBack); // Sends graphics to display window

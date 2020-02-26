@@ -1,5 +1,5 @@
 ﻿  main.cpp
-C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(33,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(52,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-C:\Users\Teo\Documents\GitHub\Snake_game\main.cpp(77,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  4332.vcxproj -> C:\Users\Teo\Documents\GitHub\Snake_game\Debug\4332.exe
+F:\Snake_game\main.cpp(40,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+F:\Snake_game\main.cpp(91,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+F:\Snake_game\main.cpp(140,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+  4332.vcxproj -> F:\Snake_game\Debug\4332.exe

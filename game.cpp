@@ -1,15 +1,16 @@
 #include <Windows.h>
-#include <GL/gl.h>
-#include <GL/glut.h>
+//#include <GL/gl.h>
+#include <GL/freeglut.h>
 #include <ctime>
 #include "Game.h"
 
-extern int score;
+
 extern bool gameOver;
 bool food = true;
 bool enigma = true;
 extern double speed;
 short sDirection = RIGHT; // Default direction
+int score = 0;
 int gridX, gridY;
 int snake_length = 2;
 int posX[MAX] = { 20 }, posY[MAX] = { 20 };
@@ -110,6 +111,7 @@ void drawSnake() {
 
 	//When the snake eats food
 	if (foodX == posX[0] && foodY == posY[0]) {	
+		score += 1;
 		speed *= 0.95;
 		snake_length++;
 		if (snake_length > MAX) {
