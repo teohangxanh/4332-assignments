@@ -1,5 +1,24 @@
-﻿  main.cpp
-F:\Snake_game\main.cpp(40,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-F:\Snake_game\main.cpp(91,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-F:\Snake_game\main.cpp(140,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+﻿  game.cpp
+F:\Snake_game\game.cpp(61,16): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(61,13): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(62,20): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(62,15): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(63,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(63,15): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(64,18): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(64,13): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(159,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(159,30): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(159,17): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(159,10): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(175,49): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(175,36): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(175,19): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(175,10): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\Snake_game\game.cpp(182,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+F:\Snake_game\main.cpp(39,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+F:\Snake_game\main.cpp(90,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+F:\Snake_game\main.cpp(139,16): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+  Generating Code...
   4332.vcxproj -> F:\Snake_game\Debug\4332.exe

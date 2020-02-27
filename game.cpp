@@ -1,5 +1,4 @@
 #include <Windows.h>
-//#include <GL/gl.h>
 #include <GL/freeglut.h>
 #include <ctime>
 #include "Game.h"
@@ -51,8 +50,8 @@ Author: Ted Dang
  *********************************************************************************************/
 void unit(int x, int y) {
 	if (x == 0 || y == 0 || x == gridX - 1 || y == gridY - 1) {
-		glLineWidth(3.0); // sets the width of the line
-		glColor3f(1.0, 0.0, 0.0); // sets the color of the line
+		glLineWidth(3.0); // sets the width of the border line
+		glColor3f(1.0, 1.0, 0.0); // sets the color of the line to be yellow
 	}
 	else {
 		glLineWidth(1.0);
@@ -153,7 +152,6 @@ Author: Ted Dang
 void drawFood() {
 	if (food) //Food has to be reset
 	{
-		//srand(time(NULL));
 		random(foodX, foodY);
 	}
 	food = false;

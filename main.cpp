@@ -13,10 +13,9 @@ extern int score;
 extern short sDirection;
 extern int snake_length;
 bool gameOver = false;
-double speed = 50;
+double speed = 150; // The bigger, the smaller
 
 #include <Windows.h>
-//#include <GL/gl.h>
 #include <GL/freeglut.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,8 +55,8 @@ void display_callBack() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	drawGrid();
 	drawSnake();
-	//drawEnigma();
 	drawFood();
+	drawEnigma();
 	glutSwapBuffers(); // swaps the buffers of the current window if double buffered
 	if (gameOver) {
 		char scores[10];
