@@ -13,7 +13,6 @@ void drawGrid(); // draws the playground
 void unit(int, int); // draws the board
 void drawSnake();
 void drawFood();
-void drawEnigma();
 void random(int&, int&);
 
 #endif

@@ -1,5 +1,4 @@
 #include <Windows.h>
-//#include <GL/gl.h>
 #include <GL/freeglut.h>
 #include <ctime>
 #include "Game.h"
@@ -13,17 +12,16 @@ short sDirection = RIGHT; // Default direction
 int score = 0;
 int gridX, gridY;
 int snake_length = 2;
-int posX[MAX] = { 20 }, posY[MAX] = { 20 };
-int foodX, foodY;
-int enigmaX, enigmaY;
-int lucky_number;
+int posX[MAX] = { 20 }, posY[MAX] = { 20 }; // Store position of the snake's segments
+int foodX, foodY; // Position of food
+int enigmaX = 20, enigmaY = 20; // Position of enigma
 
 /*******************************************************************************************
 function: initGrid
 purpose: Create grid
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
+Date: 2/21/2020
+********************************************************************************************/
 void initGrid(int x, int y) {
 	gridX = x;
 	gridY = y;
@@ -33,8 +31,8 @@ void initGrid(int x, int y) {
 function: drawGrid
 purpose: Sets the playground for the game
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
+Date: 2/21/2020
+********************************************************************************************/
 void drawGrid() {
 	for (int i = 0; i < gridX; i++) {
 		for (int j = 0; j < gridY; j++) {
@@ -47,8 +45,8 @@ void drawGrid() {
 function: unit
 purpose: Oustand the playground's border
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
+Date: 2/21/2020
+********************************************************************************************/
 void unit(int x, int y) {
 	if (x == 0 || y == 0 || x == gridX - 1 || y == gridY - 1) {
 		glLineWidth(3.0); // sets the width of the line
@@ -71,14 +69,19 @@ function: drawSnake
 purpose: Draw snake and handle cases when the snake eats food, collides with its body, 
 		 touches window edges, etc.
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
+Date: 2/21/2020
+********************************************************************************************/
 void drawSnake() {
+	glColor3f(1.0, 0.0, 1.0); // Color of enigma
+	glRectf(enigmaX, enigmaY, enigmaX + 1, enigmaY + 1); // Rectangle representing enigma
+
+	// The new snake's segment copy the immediately previous one
 	for (int i = snake_length - 1; i > 0; i--) {
 		posX[i] = posX[i - 1];
 		posY[i] = posY[i - 1];
 	}
 
+	// Move the snake's head
 	switch (sDirection) {
 	case UP: posY[0]++; break;
 	case DOWN: posY[0]--; break;
@@ -86,6 +89,7 @@ void drawSnake() {
 	case RIGHT: posX[0]++; break;
 	}
 
+	// Draw the snake's segments
 	for (int i = 0; i < snake_length; i++) {
 		if (i == 0) {
 			glColor3f(0.0, 1.0, 0.0); // A viper
@@ -121,26 +125,15 @@ void drawSnake() {
 		drawFood();
 	}
 
-	//When the snake gets enigma
+	//When the snake gets enigma, reduce speed by 20%
 	if (enigmaX == posX[0] && enigmaY == posY[0]) {
-		//srand(time(NULL));
-		lucky_number = rand() % 2;
-		// You are lucky to double your score
-		if (lucky_number == 1) {
-			snake_length *= 2;
-			if (snake_length > MAX) {
-				snake_length = MAX;
-			}
+		if (enigma) {
+			speed *= 1.2;
+			enigma = false;
 		}
-		// You are unlucky to half your score, if your score == 1, you die
 		else {
-			if (snake_length > 2) {
-				snake_length /= 2;
-			}
-			else gameOver = true;
+			enigma = true;
 		}
-		enigma = true;
-		drawEnigma();
 	}
 }
 
@@ -148,8 +141,8 @@ void drawSnake() {
 function: drawFood
 purpose: Draw food
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
+Date: 2/21/2020
+********************************************************************************************/
 void drawFood() {
 	if (food) //Food has to be reset
 	{
@@ -162,20 +155,11 @@ void drawFood() {
 }
 
 /*******************************************************************************************
-function: drawEnigma
-purpose: Draw enigma
+function: random
+purpose: Assign a random value from 1 to grid - 2 to x and y (x != y)
 Author: Ted Dang
- Date: 2/21/2020
- *********************************************************************************************/
-void drawEnigma() {
-	if (enigma) // Enigma has to be reset 
-	{
-		random(enigmaX, enigmaY);
-	}
-	enigma = false;
-	glColor3f(1.0, 0.0, 1.0);
-	glRectf(enigmaX, enigmaY, enigmaX + 1, enigmaY + 1);
-}
+Date: 2/21/2020
+********************************************************************************************/
 
 void random(int& x, int& y) {
 	int _maxX = gridX - 2;
