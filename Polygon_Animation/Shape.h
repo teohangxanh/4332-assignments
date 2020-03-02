@@ -1,6 +1,5 @@
 #pragma once
 #include "RGBColor.h"
-#include "Location.h"
 #ifndef _Shape_ #define Shape_ 
 #endif 
 /********************************************
@@ -12,10 +11,10 @@ Dependencies: none
 *********************************************/
 class Shape {
 	private:
-		int NumSides; // Number of Polygon Sides
-		RGBColor color; //Shape color
-		Location origin; //center of the shape
-		GLint drawMode; //drawing mode
+		int NumSides;   // Number of Polygon Sides
+		RGBColor color;   //Shape color
+		Location origin;  //center of the shape
+		GLint drawMode;   //drawing mode
 		Location* vertices;
 
 	public:

@@ -9,11 +9,7 @@ Created: 02/12/2020
 Dependencies: none
 *********************************************/
 class RGBColor {
-private: 
-	double red; 
-	double green; 
-	double blue;
-
+private: double red; double green; double blue;
 public:
 	//constructors 
 	RGBColor(); //sets to black 
@@ -24,7 +20,6 @@ public:
 	void setBlue(double blue);
 	void setGreen(double green);
 	void setColors(double red, double green, double blue); // set all the colors 
-
 	// get methods 
 	double getRed();
 	double getBlue();
