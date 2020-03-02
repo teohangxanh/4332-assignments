@@ -8,7 +8,7 @@ using namespace std;
 
 static bool spinning = true; //animated or not 
 static const int FPS = 60; //frames to render 
-Location origin(25, 25, 0); // point coordinate 
+Location origin(25, 25); // point coordinate 
 RGBColor currentColor(0.9, 0.1, 0.1); // color 
 Location* vertices; // array of vertices for the shape 
 Shape myShape(6, currentColor, origin, GL_POLYGON); // create a new shape 
@@ -17,7 +17,8 @@ static GLfloat currentAngleOfRotation = 0.0; // rotation angle
 /********************************
 Function: reshape
 Purpose: maintain aspect ratio
-Author: Cooper Date: 2/21/2020
+Author: Cooper 
+Date: 2/21/2020
 *******************************/
 void reshape(GLint width, GLint height) {
     glViewport(0, 0, width, height);
@@ -32,8 +33,8 @@ void reshape(GLint width, GLint height) {
 function: init()
 purpose: initialize the shape to be drawn and calculates the vertices of the shape
 Author: Cooper
- Date: 2/21/2020
- **********************************/
+Date: 2/21/2020
+**********************************/
 void init() {
     myShape.setVertices(25);
     vertices = myShape.getVertices();
