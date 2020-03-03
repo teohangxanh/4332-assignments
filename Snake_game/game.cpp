@@ -5,9 +5,9 @@
 
 
 extern bool gameOver;
-extern double speed;
 bool food = true;
 bool enigma = true;
+extern double speed;
 short sDirection = RIGHT; // Default direction
 int score = 0;
 int gridX, gridY;
