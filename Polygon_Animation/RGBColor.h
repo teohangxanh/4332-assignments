@@ -1,6 +1,10 @@
 #pragma once 
-#ifndef _RGBCOLOR_ #define RGBCOLOR_ 
+#include <gl/GL.h>
+#include <GL/glew.h>
+#ifndef _RGBCOLOR_ 
+#define RGBCOLOR_ 
 #endif 
+
 /********************************************
 Class: RGBColor.h
 Author: Cooper
@@ -8,6 +12,7 @@ Purpose: hold class structure information
 Created: 02/12/2020
 Dependencies: none
 *********************************************/
+
 class RGBColor {
 private: 
 	double red; 

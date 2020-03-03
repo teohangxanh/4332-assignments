@@ -1,6 +1,9 @@
 #pragma once
+#include <gl/GL.h>
+#include <GL/glew.h>
 #include "RGBColor.h"
-#ifndef _Location_ #define Location_ 
+#ifndef _Location_ 
+#define Location_ 
 #endif 
 /********************************************
 Class: Location.h

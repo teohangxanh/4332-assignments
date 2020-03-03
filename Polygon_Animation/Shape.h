@@ -1,7 +1,10 @@
 #pragma once
+#include <gl/GL.h>
+#include <GL/glew.h>
 #include "RGBColor.h"
 #include "Location.h"
-#ifndef _Shape_ #define Shape_ 
+#ifndef _Shape_ 
+#define Shape_ 
 #endif 
 /********************************************
 Class: Shape.h
