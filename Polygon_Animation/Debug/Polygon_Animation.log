@@ -182,7 +182,7 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\gl\GL.h(1177,55):
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\gl\GL.h(1178,11): error C2144: syntax error: 'void' should be preceded by ';'
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\gl\GL.h(1178,16): fatal error C1003: error count exceeds 100; stopping compilation
   main.cpp
-D:\GitHub\4332-assignments\Polygon_Animation\packages\nupengl.core.0.1.0.1\build\native\include\GL\glew.h(84,1): fatal error C1189: #error:  gl.h included before glew.h
+F:\GitHub\4332-assignments\Polygon_Animation\packages\nupengl.core.0.1.0.1\build\native\include\GL\glew.h(84,1): fatal error C1189: #error:  gl.h included before glew.h
   RGBColor.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\gl\GL.h(1157,11): error C2144: syntax error: 'void' should be preceded by ';'
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\gl\GL.h(1157,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
