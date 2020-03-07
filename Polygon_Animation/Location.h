@@ -15,22 +15,22 @@ class Location {
 private:
 	double cord_x;
 	double cord_y;
-	double cord_z;
+	//double cord_z;
 
 public:
 	//constructors
 	Location(); // sets to (0, 0)
 	Location(double x, double y); // 2D
-	Location(double x, double y, double z); // 3D
+	//Location(double x, double y, double z); // 3D
 
 	//set methods
 	void setX(double x);
 	void setY(double y);
-	void setZ(double z);
+	//void setZ(double z);
 
 	//get Methods
 	double getX();
 	double getY();
-	double getZ();
+	//double getZ();
 };
 #endif 

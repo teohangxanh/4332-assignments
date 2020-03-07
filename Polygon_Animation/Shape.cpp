@@ -44,7 +44,7 @@ void Shape::setVertex(int index, Location l) {
 }
 
 void Shape::setVertices(int size) {
-	vertices[size];
+	vertices.resize(size, this->origin);
 }
 
 //get Methods
@@ -60,6 +60,6 @@ GLint Shape::getDrawMode() {
 	return drawMode;
 }
 
-Location* Shape::getVertices() {
+vector<Location> Shape::getVertices() {
 	return vertices;
 }

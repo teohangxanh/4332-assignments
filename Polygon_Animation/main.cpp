@@ -3,6 +3,7 @@
 #include <GL/glut.h>
 #include <gl/GL.h>
 #include <iostream>
+#include <cmath>
 #include "Shape.h"
 #include "Location.h"
 #include "RGBColor.h"
@@ -10,11 +11,12 @@ using namespace std;
 
 static bool spinning = true; //animated or not 
 static const int FPS = 60; //frames to render 
+static GLfloat currentAngleOfRotation = 0.0; // rotation angle
+static double radius = 5;
 Location origin(25, 25); // point coordinate 
 RGBColor currentColor(0.9, 0.1, 0.1); // color 
-Location* vertices; // array of vertices for the shape 
+vector<Location> vertices; // array of vertices for the shape 
 Shape myShape(6, currentColor, origin, GL_POLYGON); // create a new shape 
-static GLfloat currentAngleOfRotation = 0.0; // rotation angle
 
 /********************************
 Function: reshape
@@ -38,19 +40,25 @@ Author: Cooper
 Date: 2/21/2020
 **********************************/
 void init() {
-    myShape.setVertices(25);
-    vertices = myShape.getVertices();
+    myShape.setVertices(25); // set the vertices of the shape
+    myShape.setOrigin(origin); // set the origin of the shape
+    vertices = myShape.getVertices(); // put the vertices in an array 
 }
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT); //setup 
+    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
-    myShape.setVertices(25); // set the vertices of the shape
-    myShape.setOrigin(origin); // set the origin of the shape 
-    vertices = myShape.getVertices(); // put the vertices in an array 
-    glBegin(GL_POLYGON); // and draw it 
+    init();
+    // Arrange vertices to their right positions to form a polygon
+    double pi = 3.1415926535897932;
+    for (int i = 0; i < vertices.size(); i++) {
+        double angle = 2 * pi / vertices.size();
+        vertices[i].setX(origin.getX() + radius * sin(i * angle));
+        vertices[i].setY(origin.getY() + radius * sin(i * angle));
+    }
+    glBegin(GL_LINE_LOOP); // and draw it 
     glColor3f(currentColor.getRed(), currentColor.getGreen(), currentColor.getBlue());
     for (int i = 0; i < myShape.getSides(); i++) {
         glVertex2f(vertices[i].getX(), vertices[i].getY());
@@ -110,7 +118,7 @@ void keyboard(unsigned char Key, int x, int y) {
     case '8': myShape.setSides(8); break;
     case 'r': currentColor.setColors(1.0, 0.0, 0.0); break;
     case 'b': currentColor.setColors(0.0, 0.0, 1.0); break;
-    case 'g': currentColor.setColors(0.0, 1.0, 0.0);
+    case 'g': currentColor.setColors(0.0, 1.0, 0.0); break;
     }
 }
 
@@ -128,7 +136,7 @@ void SpecialKeys(int key, int x, int y) {
     case GLUT_KEY_DOWN:glutReshapeWindow(glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT) - 1); break;
     case GLUT_KEY_F1: glutFullScreen(); break;
     case GLUT_KEY_F2: glutReshapeWindow(800, 800); break;
-    case GLUT_KEY_F3: glutIconifyWindow(); break;
+    case GLUT_KEY_F3: glutIconifyWindow(); break; // Hide the window 
     }
 }
 
@@ -138,18 +146,17 @@ Author: Cooper
 Date: 2/21/2020
 *********************************/
 int main(int argc, char** argv) {
-    init();
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowPosition(80, 80);
     glutInitWindowSize(800, 500);
-    glutCreateWindow("Spinning Shape");
+    glutCreateWindow("Group 6 - Polygon animation");
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);
-  /*  glutTimerFunc(100, timer, 0);
+    glutTimerFunc(100, timer, 0);
     glutKeyboardFunc(keyboard);
     glutSpecialFunc(SpecialKeys);
-    glutMouseFunc(mouse); */
+    glutMouseFunc(mouse);
     glutMainLoop();
 }
 
