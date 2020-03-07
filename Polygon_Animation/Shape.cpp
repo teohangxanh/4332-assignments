@@ -60,6 +60,6 @@ GLint Shape::getDrawMode() {
 	return drawMode;
 }
 
-Location* getVertices() {
+Location* Shape::getVertices() {
 	return vertices;
 }

@@ -146,9 +146,10 @@ int main(int argc, char** argv) {
     glutCreateWindow("Spinning Shape");
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);
-    glutTimerFunc(100, timer, 0);
+  /*  glutTimerFunc(100, timer, 0);
     glutKeyboardFunc(keyboard);
     glutSpecialFunc(SpecialKeys);
-    glutMouseFunc(mouse); glutMainLoop();
+    glutMouseFunc(mouse); */
+    glutMainLoop();
 }
 

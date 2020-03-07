@@ -7,5 +7,5 @@ D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(56,56): warning C4244: 'ar
 D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(56,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   RGBColor.cpp
   Shape.cpp
-D:\GitHub\4332-assignments\Polygon_Animation\Shape.cpp(55,9): error C2065: 'verices': undeclared identifier
   Generating Code...
+  Polygon_Animation.vcxproj -> D:\GitHub\4332-assignments\Polygon_Animation\Debug\Polygon_Animation.exe
