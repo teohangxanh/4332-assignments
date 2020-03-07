@@ -1,10 +1,9 @@
-#pragma once
-#include <gl/GL.h>
-#include <GL/glew.h>
+//#include <gl/GL.h>
+//#include <GL/glew.h>
 #include "RGBColor.h"
-#ifndef _Location_ 
-#define Location_ 
-#endif 
+#ifndef Location_H
+#define Location_H 
+
 /********************************************
 Class: Location.h
 Author: Ted Dang
@@ -14,9 +13,9 @@ Dependencies: none
 *********************************************/
 class Location {
 private:
-	double cord_x = 0;
-	double cord_y = 0;
-	double cord_z = 0;
+	double cord_x;
+	double cord_y;
+	double cord_z;
 
 public:
 	//constructors
@@ -34,3 +33,4 @@ public:
 	double getY();
 	double getZ();
 };
+#endif 

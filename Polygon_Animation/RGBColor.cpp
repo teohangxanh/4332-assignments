@@ -8,63 +8,55 @@ Created: 03/02/2020
 Dependencies: none
 *********************************************/
 
-class RGBColor {
-private:
-	double red;
-	double green;
-	double blue;
+//constructors 
+RGBColor::RGBColor() //sets to black 
+{
+	red = 0;
+	green = 0;
+	blue = 0;
+}
 
-public:
-	//constructors 
-	RGBColor() //sets to black 
-	{
-		red = 0;
-		green = 0;
-		blue = 0;
-	}
+RGBColor::RGBColor(double red, double green, double blue) {
+	this->red = red;
+	this->green = green;
+	this->blue = blue;
+}
 
-	RGBColor(double red, double green, double blue) {
-		this->red = red;
-		this->green = green;
-		this->blue = blue;
-	}
+//set Methods 
+void RGBColor::setRed(double red) //set individual colors 
+{
+	this->red = red;
+}
 
-	//set Methods 
-	void setRed(double red) //set individual colors 
-	{
-		this->red = red;
-	}
+void RGBColor::setBlue(double blue) {
+	this->blue = blue;
+}
 
-	void setBlue(double blue) {
-		this->blue = blue;
-	}
+void RGBColor::setGreen(double green) {
+	this->green = green;
+}
 
-	void setGreen(double green) {
-		this->green = green;
-	}
+void RGBColor::setColors(double red, double green, double blue) // set all the colors 
+{
+	this->red = red;
+	this->blue = blue;
+	this->green = green;
+}
 
-	void setColors(double red, double green, double blue) // set all the colors 
-	{
-		this->red = red;
-		this->blue = blue;
-		this->green = green;
-	}
+// get methods 
+double RGBColor::getRed() {
+	return red;
+}
 
-	// get methods 
-	double getRed() {
-		return red;
-	}
+double RGBColor::getBlue() {
+	return blue;
+}
 
-	double getBlue() {
-		return blue;
-	}
+double RGBColor::getGreen() {
+	return green;
+}
 
-	double getGreen() {
-		return green;
-	}
-
-	RGBColor* getColors() //gets a color object
-	{
-		return new RGBColor();
-	}
-};
+RGBColor* getColors() //gets a color object
+{
+	return new RGBColor();
+}

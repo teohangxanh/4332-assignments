@@ -1,7 +1,7 @@
 #include <windows.h>
+#include <GL/glew.h>
 #include <GL/glut.h>
 #include <gl/GL.h>
-#include <GL/glew.h>
 #include <iostream>
 #include "Shape.h"
 #include "Location.h"

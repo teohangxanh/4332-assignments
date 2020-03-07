@@ -1,11 +1,10 @@
-#pragma once
-#include <gl/GL.h>
+//#include <gl/GL.h>
 #include <GL/glew.h>
 #include "RGBColor.h"
 #include "Location.h"
-#ifndef _Shape_ 
-#define Shape_ 
-#endif 
+#ifndef Shape_H 
+#define Shape_H 
+
 /********************************************
 Class: Shape.h
 Author: Ted Dang
@@ -40,3 +39,4 @@ class Shape {
 		GLint getDrawMode();
 		Location* getVertices();
 };
+#endif 

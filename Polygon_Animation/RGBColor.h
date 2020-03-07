@@ -1,9 +1,7 @@
-#pragma once 
-#include <gl/GL.h>
-#include <GL/glew.h>
-#ifndef _RGBCOLOR_ 
-#define RGBCOLOR_ 
-#endif 
+//#include <gl/GL.h>
+//#include <GL/glew.h>
+#ifndef RGBCOLOR_H 
+#define RGBCOLOR_H 
 
 /********************************************
 Class: RGBColor.h
@@ -36,3 +34,4 @@ public:
 	double getGreen();
 	RGBColor* getColors(); //gets a color object
 };
+#endif 

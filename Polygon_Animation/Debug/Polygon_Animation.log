@@ -1,2 +1,11 @@
-﻿  glad.c
-c1 : fatal error C1083: Cannot open source file: 'C:\Users\Teo\Downloads\Compressed\glad\src\glad.c': No such file or directory
+﻿  Location.cpp
+  main.cpp
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(54,83): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(54,59): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(54,34): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(56,56): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(56,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  RGBColor.cpp
+  Shape.cpp
+D:\GitHub\4332-assignments\Polygon_Animation\Shape.cpp(55,9): error C2065: 'verices': undeclared identifier
+  Generating Code...
