@@ -47,9 +47,9 @@ void init() {
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT); //setup 
-    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
     init();
     // Arrange vertices to their right positions to form a polygon
     double pi = 3.1415926535897932;
