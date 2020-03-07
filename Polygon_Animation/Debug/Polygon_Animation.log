@@ -1,8 +1,6 @@
 ﻿  main.cpp
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(56,23): warning C4018: '<': signed/unsigned mismatch
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(62,83): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(62,59): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(62,34): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(64,56): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(64,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(60,51): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(60,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(66,53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Polygon_Animation\main.cpp(66,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   Polygon_Animation.vcxproj -> D:\GitHub\4332-assignments\Polygon_Animation\Debug\Polygon_Animation.exe

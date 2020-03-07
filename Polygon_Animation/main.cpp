@@ -4,6 +4,7 @@
 #include <gl/GL.h>
 #include <iostream>
 #include <cmath>
+#include <array>
 #include "Shape.h"
 #include "Location.h"
 #include "RGBColor.h"
@@ -12,11 +13,65 @@ using namespace std;
 static bool spinning = true; //animated or not 
 static const int FPS = 60; //frames to render 
 static GLfloat currentAngleOfRotation = 0.0; // rotation angle
-static double radius = 5;
 Location origin(25, 25); // point coordinate 
 RGBColor currentColor(0.9, 0.1, 0.1); // color 
 vector<Location> vertices; // array of vertices for the shape 
 Shape myShape(6, currentColor, origin, GL_POLYGON); // create a new shape 
+
+int vp_width = 800;
+int vp_height = 800;
+
+array<int, 2> currentPt;
+vector<array<int, 2>> pts;
+bool closed = false;
+
+void draw_polygon(int button, int state, int x, int y)
+{
+    currentPt = array<int, 2>{x, vp_height - y};
+
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+    {
+        if (closed) pts.clear(); // restart if last action was close
+        closed = false; // continue drawing polygon
+        pts.push_back(currentPt); // store position of the mouse clicks into pts
+    }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+        // When you want to stop drawing the polygon, right click
+        closed = true;
+}
+
+void mouse_move(int x, int y)
+{
+    currentPt = std::array<int, 2>{x, vp_height - y};
+    glutPostRedisplay();
+}
+
+void display(void)
+{
+    //glClearColor(0.1, 0.1, 0.1, 0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    if (!pts.empty())
+    {
+        glBegin(GL_POLYGON);
+        glColor3f(1.0, 0.0, 0.0);
+        for (array<int, 2>& pt : pts) {
+            glVertex2f((double)pt[0], (double)pt[1]);
+        }
+        // store the position of the next mouse click
+        array<int, 2> endPt;
+        if (closed) endPt = pts.front();
+        else endPt = currentPt;
+        glVertex2f((double)endPt[0], (double)endPt[1]);
+        glEnd();
+    }
+    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
+
+    glFlush();
+    glutSwapBuffers();
+}
+
 
 /********************************
 Function: reshape
@@ -45,28 +100,28 @@ void init() {
     vertices = myShape.getVertices(); // put the vertices in an array 
 }
 
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT); //setup 
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
-    init();
-    // Arrange vertices to their right positions to form a polygon
-    double pi = 3.1415926535897932;
-    for (int i = 0; i < vertices.size(); i++) {
-        double angle = 2 * pi / vertices.size();
-        vertices[i].setX(origin.getX() + radius * sin(i * angle));
-        vertices[i].setY(origin.getY() + radius * sin(i * angle));
-    }
-    glBegin(GL_LINE_LOOP); // and draw it 
-    glColor3f(currentColor.getRed(), currentColor.getGreen(), currentColor.getBlue());
-    for (int i = 0; i < myShape.getSides(); i++) {
-        glVertex2f(vertices[i].getX(), vertices[i].getY());
-    }
-    glEnd();
-    glFlush();
-    glutSwapBuffers();
-}
+//void display() {
+//    glClear(GL_COLOR_BUFFER_BIT); //setup 
+//    glMatrixMode(GL_MODELVIEW);
+//    glLoadIdentity();
+//    glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
+//    init();
+//    // Arrange vertices to their right positions to form a polygon
+//    double pi = 3.1415926535897932;
+//    for (int i = 0; i < vertices.size(); i++) {
+//        double angle = 2 * pi / vertices.size();
+//        vertices[i].setX(origin.getX() + radius * sin(i * angle));
+//        vertices[i].setY(origin.getY() + radius * sin(i * angle));
+//    }
+//    glBegin(GL_LINE_LOOP); // and draw it 
+//    glColor3f(currentColor.getRed(), currentColor.getGreen(), currentColor.getBlue());
+//    for (int i = 0; i < myShape.getSides(); i++) {
+//        glVertex2f(vertices[i].getX(), vertices[i].getY());
+//    }
+//    glEnd();
+//    glFlush();
+//    glutSwapBuffers();
+//}
 
 /*********************************
 function: timer()
@@ -116,6 +171,8 @@ void keyboard(unsigned char Key, int x, int y) {
     case '6': myShape.setSides(6); break;
     case '7': myShape.setSides(7); break;
     case '8': myShape.setSides(8); break;
+    case 's': spinning = true; break;
+    case 'u': spinning = false; break;
     case 'r': currentColor.setColors(1.0, 0.0, 0.0); break;
     case 'b': currentColor.setColors(0.0, 0.0, 1.0); break;
     case 'g': currentColor.setColors(0.0, 1.0, 0.0); break;
@@ -149,14 +206,14 @@ int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowPosition(80, 80);
-    glutInitWindowSize(800, 500);
+    glutInitWindowSize(vp_width, vp_height);
     glutCreateWindow("Group 6 - Polygon animation");
-    glutReshapeFunc(reshape);
+    //glutReshapeFunc(reshape);
     glutDisplayFunc(display);
-    glutTimerFunc(100, timer, 0);
-    glutKeyboardFunc(keyboard);
-    glutSpecialFunc(SpecialKeys);
-    glutMouseFunc(mouse);
+    glutPassiveMotionFunc(mouse_move);
+    glutMouseFunc(draw_polygon);
+    glMatrixMode(GL_PROJECTION);
+    glOrtho(0.0f, (float)vp_width, 0.0f, (float)vp_height, -1.0, 1.0);
     glutMainLoop();
 }
 
