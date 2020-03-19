@@ -9,7 +9,7 @@
 #include "RGBColor.h"
 using namespace std;
 
-static bool spinning = true; //animated or not 
+static bool spinning = false; //animated or not 
 static const int FPS = 60; //frames to render 
 static GLfloat currentAngleOfRotation = 0.0; // rotation angle
 static double radius = 5;
@@ -51,7 +51,7 @@ void display() {
     glLoadIdentity();
     glRotatef(currentAngleOfRotation, 0.0, 0.0, 1.0); // rotate the shape 
     init();
-    // Arrange vertices to their right positions to form a polygon
+     // Arrange vertices to their right positions to form a polygon
     double pi = 3.1415926535897932;
     for (int i = 0; i < vertices.size(); i++) {
         double angle = 2 * pi / vertices.size();
@@ -63,6 +63,8 @@ void display() {
     for (int i = 0; i < myShape.getSides(); i++) {
         glVertex2f(vertices[i].getX(), vertices[i].getY());
     }
+
+    // Get mouse click's position
     glEnd();
     glFlush();
     glutSwapBuffers();
@@ -92,14 +94,32 @@ Author: Cooper
 Date: 2/21/2020
 *********************************/
 void mouse(int button, int state, int x, int y) {
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        spinning = true;
-        glutSetCursor(GLUT_CURSOR_DESTROY);
+    glBegin(GL_POLYGON);
+    glColor3f(currentColor.getRed(), currentColor.getGreen(), currentColor.getBlue());
+    double mouseXPos = x, mouseYPos = y;
+    vertices[0].setX(mouseXPos);
+    vertices[0].setY(mouseYPos);
+    for (int i = 1; i < vertices.size(); i++) {
+        bool stop = false;
+        mouseXPos = x;
+        mouseYPos = y;
+        for (int j = 0; j < vertices.size(); i++) {
+            if (mouseXPos == vertices[j].getX() && mouseYPos == vertices[j].getY()) {
+                stop = true;
+                break;
+            }
+        }
+        if (stop) break;
+        else {
+            vertices[i].setX(mouseXPos);
+            vertices[i].setY(mouseYPos);
+        }
+        glVertex2f(vertices[i].getX(), vertices[i].getY());
     }
-    else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
-        spinning = false;
-        glutSetCursor(GLUT_CURSOR_WAIT);
-    }
+    glEnd();
+    glFlush();
+    glutSwapBuffers();
+
 }
 
 /*********************************
@@ -116,6 +136,8 @@ void keyboard(unsigned char Key, int x, int y) {
     case '6': myShape.setSides(6); break;
     case '7': myShape.setSides(7); break;
     case '8': myShape.setSides(8); break;
+    case 's': spinning = true; break;
+    case 'u': spinning = false; break;
     case 'r': currentColor.setColors(1.0, 0.0, 0.0); break;
     case 'b': currentColor.setColors(0.0, 0.0, 1.0); break;
     case 'g': currentColor.setColors(0.0, 1.0, 0.0); break;
