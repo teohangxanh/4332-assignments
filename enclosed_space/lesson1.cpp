@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <sstream>
 //#define GLEW_STATIC
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
@@ -10,6 +10,7 @@ const int gWindowWidth = 800;
 const int gWindowHeight = 600;
 
 void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
+void showFPS(GLFWwindow* window);
 
 int main() {
 	if (!glfwInit()) {
@@ -36,6 +37,7 @@ int main() {
 
 	// Main loop
 	while (!glfwWindowShouldClose(pWindow)) {
+		showFPS(pWindow);
 		glfwPollEvents();
 		glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -54,4 +56,29 @@ void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode)
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
+}
+
+void showFPS(GLFWwindow* window) {
+	static double previousSeconds = 0.0;
+	static int frameCount = 0;
+	double elapsedSeconds;
+	double currentSeconds = glfwGetTime(); // returns number of seconds sicen GLFW started, as a double
+	elapsedSeconds = currentSeconds - previousSeconds;
+
+	// limit text update 4 times per second
+	if (elapsedSeconds > 0.25) {
+		previousSeconds = currentSeconds;
+		double fps = (double)frameCount / elapsedSeconds;
+		double msPerFrame = 1000.0 / fps;
+		ostringstream outs;
+		outs.precision(3);
+		outs << fixed
+			<< TITLE << "     "
+			<< "FPS: " << fps << "     "
+			<< "Frame time: " << msPerFrame << " (ms)";
+		glfwSetWindowTitle(window, outs.str().c_str());
+
+		frameCount = 0;
+	}
+	frameCount++;
 }
