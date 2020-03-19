@@ -8,6 +8,7 @@ using namespace std;
 const char* TITLE = "Introduction";
 const int gWindowWidth = 800;
 const int gWindowHeight = 600;
+bool gFullScreen = false;
 
 void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
 void showFPS(GLFWwindow* window);
@@ -21,7 +22,17 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	GLFWwindow* pWindow = glfwCreateWindow(gWindowWidth, gWindowHeight, TITLE, NULL, NULL);
+	GLFWwindow* pWindow = NULL;
+	if (gFullScreen) {
+		GLFWmonitor* pMonitor = glfwGetPrimaryMonitor();
+		const GLFWvidmode* pvmode = glfwGetVideoMode(pMonitor);
+		if (pvmode != NULL) {
+			pWindow = glfwCreateWindow(pvmode->width, pvmode->height, TITLE, pMonitor, NULL);
+		}
+	}
+	else {
+		pWindow = glfwCreateWindow(gWindowWidth, gWindowHeight, TITLE, NULL, NULL);
+	}
 
 	if (pWindow == NULL) {
 		cerr << "Failed to create GLFW Window" << endl;
