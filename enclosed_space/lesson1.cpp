@@ -9,7 +9,7 @@ const char* TITLE = "Introduction";
 const int gWindowWidth = 800;
 const int gWindowHeight = 600;
 
-//void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
+void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 int main() {
 	if (!glfwInit()) {
@@ -30,7 +30,7 @@ int main() {
 
 	glfwMakeContextCurrent(pWindow);
 
-	//glfwSetKeyCallback(pWindow, glfw_onkey);
+	glfwSetKeyCallback(pWindow, glfw_onkey);
 
 	glewExperimental = GL_TRUE;
 
@@ -50,8 +50,8 @@ int main() {
 	return 0;
 }
 
-//void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode) {
-//	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-//		glfwSetWindowShouldClose(window, GL_TRUE);
-//	}
-//}
+void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode) {
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+}
