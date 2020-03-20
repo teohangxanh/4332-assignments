@@ -1,1 +1,5 @@
-﻿  enclosed_space.vcxproj -> D:\GitHub\4332-assignments\Enclosed_space\.\bin\enclosed_space.exe
+﻿lesson2.obj : error LNK2005: "void __cdecl glfw_onkey(struct GLFWwindow *,int,int,int,int)" (?glfw_onkey@@YAXPAUGLFWwindow@@HHHH@Z) already defined in lesson1.obj
+lesson2.obj : error LNK2005: "void __cdecl showFPS(struct GLFWwindow *)" (?showFPS@@YAXPAUGLFWwindow@@@Z) already defined in lesson1.obj
+lesson2.obj : error LNK2005: _main already defined in lesson1.obj
+lesson2.obj : error LNK2005: "char const * const TITLE" (?TITLE@@3PBDB) already defined in lesson1.obj
+.\bin\enclosed_space.exe : fatal error LNK1169: one or more multiply defined symbols found
