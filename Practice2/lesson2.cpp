@@ -39,23 +39,19 @@ int main() {
 
 	GLfloat vertices[] = {
 		// Tri 0			
-		-0.5f,	0.5f,	0.0f,	// Top
-		 0.5f,	0.5f,	0.0f,	// Left
-		 0.5f,	-0.5f,	0.0f,	// Right
-
-		 // Tri 1
-		-0.5f,	0.5f,	0.0f,	// Top
-		-0.5f,	-0.5f,	0.0f,	// Left
-		 0.5f,	-0.5f,	0.0f,	// Right
+		-0.5f,	0.5f,	0.0f,	
+		 0.5f,	0.5f,	0.0f,	
+		 0.5f,	-0.5f,	0.0f,
+		-0.5f,	-0.5f,	0.0f
+		 
 	};
 
-	GLfloat vert_color[] = {
-		1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f
+	GLuint indices[] = {
+		0, 1, 2,	// Tri 0
+		0, 2, 3		// Tri 1
 	};
 
-	GLuint vao, vbo;
+	GLuint vao, ibo, vbo;
 
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -67,6 +63,10 @@ int main() {
 	// Position
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
+
+	glGenBuffers(1, &ibo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vs, 1, &vertexShaderSrc, NULL);
@@ -112,7 +112,7 @@ int main() {
 
 		glUseProgram(shaderProgram);
 		glBindVertexArray(vao);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
 		glfwSwapBuffers(gWindow);
@@ -121,6 +121,7 @@ int main() {
 	glDeleteProgram(shaderProgram);
 	glDeleteVertexArrays(1, &vao);
 	glDeleteBuffers(1, &vbo);
+	glDeleteBuffers(1, &ibo);
 
 	glfwTerminate();
 
