@@ -10,25 +10,22 @@ const int gWindowWidth = 800;
 const int gWindowHeight = 600;
 bool initOpenGL();
 GLFWwindow* gWindow = NULL;
+bool gWireFrame = false;
 
 const GLchar* vertexShaderSrc =
 "#version 330 core\n"
 "layout (location = 0) in vec3 pos;"
-"layout (location = 1) in vec3 color;"
-"out vec3 vert_color;"
 "void main()"
 "{"
-"	vert_color = color;"
 "	gl_Position = vec4(pos.x, pos.y, pos.z, 1.0);"
 "}";
 
 const GLchar* fragmentShaderSrc =
 "#version 330 core\n"
-"in vec3 vert_color;"
 "out vec4 frag_color;"
 "void main()"
 "{"
-"	frag_color = vec4(vert_color, 1.0f);"
+"	frag_color = vec4(0.35f, 0.96f, 0.3f, 1.0f);"
 "}";
 
 void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -40,11 +37,16 @@ int main() {
 		return false;
 	}
 
-	GLfloat vert_pos[] = {
-		// Position			
-		0.0f, 0.5f, 0.0f,	// Top
-		-0.5f, -0.5f, 0.0f,	// Left
-		0.5, -0.5f, 0.0f,	// Right
+	GLfloat vertices[] = {
+		// Tri 0			
+		-0.5f,	0.5f,	0.0f,	// Top
+		 0.5f,	0.5f,	0.0f,	// Left
+		 0.5f,	-0.5f,	0.0f,	// Right
+
+		 // Tri 1
+		-0.5f,	0.5f,	0.0f,	// Top
+		-0.5f,	-0.5f,	0.0f,	// Left
+		 0.5f,	-0.5f,	0.0f,	// Right
 	};
 
 	GLfloat vert_color[] = {
@@ -53,28 +55,18 @@ int main() {
 		0.0f, 0.0f, 1.0f
 	};
 
-	GLuint vao, vbo, vbo2;
+	GLuint vao, vbo;
 
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vert_pos), vert_pos, GL_STATIC_DRAW);
-
-	glGenBuffers(1, &vbo2);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo2);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vert_color), vert_color, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
 	// Position
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
-
-	// Color
-	glBindBuffer(GL_ARRAY_BUFFER, vbo2);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	glEnableVertexAttribArray(1);
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vs, 1, &vertexShaderSrc, NULL);
@@ -120,7 +112,7 @@ int main() {
 
 		glUseProgram(shaderProgram);
 		glBindVertexArray(vao);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 		glBindVertexArray(0);
 
 		glfwSwapBuffers(gWindow);
@@ -138,6 +130,11 @@ int main() {
 void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode) {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+	if (key == GLFW_KEY_W && action == GLFW_PRESS) {
+		gWireFrame = !gWireFrame;
+		if (gWireFrame) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 }
 
