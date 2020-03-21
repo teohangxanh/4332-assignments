@@ -11,8 +11,25 @@ const int gWindowHeight = 600;
 bool initOpenGL();
 GLFWwindow* gWindow = NULL;
 
-const GLchar* vertexShaderSrc = " ";
-const GLchar* fragmentShaderSrc = " ";
+const GLchar* vertexShaderSrc =
+"#version 330 core\n"
+"layout (location = 0) in vec3 pos;"
+"layout (location = 1) in vec3 color;"
+"out vec3 vert_color;"
+"void main()"
+"{"
+"	vert_color = color;"
+"	gl_Position = vec4(pos.x, pos.y, pos.z, 1.0);"
+"}";
+
+const GLchar* fragmentShaderSrc =
+"#version 330 core\n"
+"in vec3 vert_color;"
+"out vec4 frag_color;"
+"void main()"
+"{"
+"	frag_color = vec4(vert_color, 1.0f);"
+"}";
 
 void glfw_onkey(GLFWwindow* window, int key, int scancode, int action, int mode);
 void showFPS(GLFWwindow* window);
@@ -23,20 +40,41 @@ int main() {
 		return false;
 	}
 
-	GLfloat vertices[] = {
-		0.0f, 0.5f, 0.0f,		// Top
-		-0.5f, -0.5f, 0.0f,		// Left
-		0.5, -0.5f, 0.0f		// Right
+	GLfloat vert_pos[] = {
+		// Position			
+		0.0f, 0.5f, 0.0f,	// Top
+		-0.5f, -0.5f, 0.0f,	// Left
+		0.5, -0.5f, 0.0f,	// Right
 	};
 
-	GLuint vao, vbo;
+	GLfloat vert_color[] = {
+		1.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f
+	};
+
+	GLuint vao, vbo, vbo2;
+
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vert_pos), vert_pos, GL_STATIC_DRAW);
+
+	glGenBuffers(1, &vbo2);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo2);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vert_color), vert_color, GL_STATIC_DRAW);
+
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
+
+	// Position
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
+
+	// Color
+	glBindBuffer(GL_ARRAY_BUFFER, vbo2);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glEnableVertexAttribArray(1);
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vs, 1, &vertexShaderSrc, NULL);
@@ -77,6 +115,7 @@ int main() {
 	while (!glfwWindowShouldClose(gWindow)) {
 		showFPS(gWindow);
 		glfwPollEvents();
+
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shaderProgram);
