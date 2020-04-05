@@ -1,0 +1,4 @@
+﻿  RGBColor.cpp
+D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,4): error C2059: syntax error: ']'
+D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,8): error C2143: syntax error: missing ';' before '{'
+D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,39): error C2143: syntax error: missing ';' before '}'
