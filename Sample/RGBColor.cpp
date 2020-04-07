@@ -46,6 +46,6 @@ GLfloat RGBColor::getBlue() { return blue; }
 GLfloat RGBColor::getGreen() { return green; }
 RGBColor* RGBColor::getColors() { return this; }
 
-void RGBColor::toGLfloatArray(GLfloat r[]) {
+void RGBColor::toGLfloatArray(GLfloat r) {
 	r[] = {getRed(), getBlue(),getGreen()};
 }

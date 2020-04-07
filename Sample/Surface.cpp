@@ -44,6 +44,16 @@ void Surface::create() {
     glEndList();
 }
 
+void Surface::trans_and_rot(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz)
+{
+    glPushMatrix();
+    glTranslatef(transx, transy, transz);
+    glRotatef(rotx, roty, rotz, 0);
+
+    create();
+    glPopMatrix();
+}
+
 //  support function for create to identify the tile list
 void Surface::draw() {
     glCallList(displayListId);

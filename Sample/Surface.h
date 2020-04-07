@@ -26,5 +26,6 @@ public:
 
     // Create and draw floor
     void create();
+    void trans_and_rot(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz);
     void draw();
 };
