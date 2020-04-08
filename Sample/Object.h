@@ -12,16 +12,22 @@ Date:   04/03/2020
 *************************************/
 class Object {
     RGBColor color;
-    vector<GLfloat[1][3]> dimension;
+    vector<GLfloat[3]> dimension;
 
 public:
-    Object(RGBColor c, vector<GLfloat[1][3]> d);
+    Object(RGBColor c, vector<GLfloat[3]> d);
     
     //  member set methods
     void setColor(RGBColor);
-    void setDimension(vector<GLfloat[1][3]> d);
+    void setDimension(vector<GLfloat[3]> d);
 
     //      member get methods
     RGBColor getColor();
-    vector<GLfloat[1][3]> getDimension();
+    vector<GLfloat[3]> getDimension();
+
+    void create();
+    void trans_and_rot(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz);
+
+    //  support function for create to identify the tile list
+    void draw();
 };

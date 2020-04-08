@@ -38,5 +38,5 @@ public:
 		RGBColor* getColors();								//gets a color object
 
 // other Methods
-		void toGLfloatArray(GLfloat r[]);
+		void toGLfloatArray(GLfloat r[3]);
 };

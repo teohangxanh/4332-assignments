@@ -1,25 +1,57 @@
-﻿  Surface.cpp
+﻿  Object.cpp
+D:\GitHub\4332-assignments\Sample\Object.cpp(38,23): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(3606,1): error C3863: array type 'GLfloat [3]' is not assignable
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1127): message : see reference to function template instantiation '_OutIt (*std::_Copy_unchecked<_Iter,float(*)[3]>(_InIt,_InIt,_OutIt))[3]' being compiled
+          with
+          [
+              _OutIt=float (*)[3],
+              _Iter=float (*)[3],
+              _InIt=float (*)[3]
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1142): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Assign_range<_Iter>(_Iter,_Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=float (*)[3]
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1142): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Assign_range<_Iter>(_Iter,_Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=float (*)[3]
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1153): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::assign<float(*)[3],0>(_Iter,_Iter)' being compiled
+          with
+          [
+              _Iter=float (*)[3]
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1153): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::assign<float(*)[3],0>(_Iter,_Iter)' being compiled
+          with
+          [
+              _Iter=float (*)[3]
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1150): message : while compiling class template member function 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Copy_assign(const std::vector<GLfloat [3],std::allocator<GLfloat [3]>> &,std::false_type)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1169): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Copy_assign(const std::vector<GLfloat [3],std::allocator<GLfloat [3]>> &,std::false_type)' being compiled
+D:\GitHub\4332-assignments\Sample\Object.h(15): message : see reference to class template instantiation 'std::vector<GLfloat [3],std::allocator<GLfloat [3]>>' being compiled
   Main.cpp
-D:\GitHub\4332-assignments\Sample\Main.cpp(306,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(306,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(307,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(307,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(308,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(308,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(309,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(333,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(334,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(335,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(58,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(58,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(59,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(59,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(60,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(60,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(61,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(153,11): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(156,16): error C2664: 'Object::Object(Object &&)': cannot convert argument 2 from 'initializer list' to 'std::vector<GLfloat [3],std::allocator<GLfloat [3]>>'
+D:\GitHub\4332-assignments\Sample\Main.cpp(183,11): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\GitHub\4332-assignments\Sample\Object.h(18,5): message : see declaration of 'Object::Object'
+D:\GitHub\4332-assignments\Sample\Main.cpp(257,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(296,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
   RGBColor.cpp
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(49,42): error C2511: 'void RGBColor::toGLfloatArray(GLfloat)': overloaded member function not found in 'RGBColor'
-D:\GitHub\4332-assignments\Sample\RGBColor.h(16): message : see declaration of 'RGBColor'
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,4): error C2059: syntax error: ']'
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,8): error C2143: syntax error: missing ';' before '{'
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,9): error C2352: 'RGBColor::getRed': illegal call of non-static member function
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(44): message : see declaration of 'RGBColor::getRed'
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,19): error C2352: 'RGBColor::getBlue': illegal call of non-static member function
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(45): message : see declaration of 'RGBColor::getBlue'
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,29): error C2352: 'RGBColor::getGreen': illegal call of non-static member function
-D:\GitHub\4332-assignments\Sample\RGBColor.cpp(46): message : see declaration of 'RGBColor::getGreen'
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,39): error C2143: syntax error: missing ';' before '}'
+  Shape.cpp
+D:\GitHub\4332-assignments\Sample\Shape.cpp(79,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\GitHub\4332-assignments\Sample\Shape.cpp(80,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\GitHub\4332-assignments\Sample\Shape.cpp(81,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\4332-assignments\Sample\Shape.cpp(82,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
