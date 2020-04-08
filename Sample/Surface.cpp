@@ -3,10 +3,12 @@
 
 
 /*************************************************************************
-Class:		Surface class
-Purpose:	Provide a surface
-Author https://cs.lmu.edu/~ray/notes/openglexamples/ as modified by Ted
-Date:	04/03/2020
+Class:		Surface class implementation
+Purpose:	Provide floor and wall
+Author      Ted, using https://cs.lmu.edu/~ray/notes/openglexamples/ as an inital base
+Date:	    04/03/2020
+
+Note:       Implementation uses existing Location, RGBColor classes rather than primitives
 ************************************************************************/
 
 //Constructors.  For the moment, only the default constructor is used

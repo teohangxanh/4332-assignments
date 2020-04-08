@@ -31,27 +31,23 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1150): message : while compiling class template member function 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Copy_assign(const std::vector<GLfloat [3],std::allocator<GLfloat [3]>> &,std::false_type)'
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vector(1169): message : see reference to function template instantiation 'void std::vector<GLfloat [3],std::allocator<GLfloat [3]>>::_Copy_assign(const std::vector<GLfloat [3],std::allocator<GLfloat [3]>> &,std::false_type)' being compiled
 D:\GitHub\4332-assignments\Sample\Object.h(15): message : see reference to class template instantiation 'std::vector<GLfloat [3],std::allocator<GLfloat [3]>>' being compiled
+  Surface.cpp
   Main.cpp
-D:\GitHub\4332-assignments\Sample\Main.cpp(58,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(58,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(59,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(59,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(60,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(60,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(61,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\GitHub\4332-assignments\Sample\Main.cpp(153,11): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(156,16): error C2664: 'Object::Object(Object &&)': cannot convert argument 2 from 'initializer list' to 'std::vector<GLfloat [3],std::allocator<GLfloat [3]>>'
-D:\GitHub\4332-assignments\Sample\Main.cpp(183,11): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\GitHub\4332-assignments\Sample\Main.cpp(47,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(47,31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(48,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(48,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(49,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(49,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(50,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\GitHub\4332-assignments\Sample\Main.cpp(142,11): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(145,16): error C2664: 'Object::Object(Object &&)': cannot convert argument 2 from 'initializer list' to 'std::vector<GLfloat [3],std::allocator<GLfloat [3]>>'
+D:\GitHub\4332-assignments\Sample\Main.cpp(172,11): message : No constructor could take the source type, or constructor overload resolution was ambiguous
 D:\GitHub\4332-assignments\Sample\Object.h(18,5): message : see declaration of 'Object::Object'
-D:\GitHub\4332-assignments\Sample\Main.cpp(257,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-D:\GitHub\4332-assignments\Sample\Main.cpp(296,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(246,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\GitHub\4332-assignments\Sample\Main.cpp(285,7): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
   RGBColor.cpp
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,4): error C2059: syntax error: ']'
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,8): error C2143: syntax error: missing ';' before '{'
 D:\GitHub\4332-assignments\Sample\RGBColor.cpp(50,39): error C2143: syntax error: missing ';' before '}'
-  Shape.cpp
-D:\GitHub\4332-assignments\Sample\Shape.cpp(79,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-D:\GitHub\4332-assignments\Sample\Shape.cpp(80,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-D:\GitHub\4332-assignments\Sample\Shape.cpp(81,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\GitHub\4332-assignments\Sample\Shape.cpp(82,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...

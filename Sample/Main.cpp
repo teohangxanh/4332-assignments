@@ -1,4 +1,3 @@
-
 #include <windows.h>
 #include "location.h"
 #include "RGBColor.h"
@@ -13,17 +12,7 @@ using namespace std;
 
 #define M_PI 3.1415926535897932384626433832795
 
-/*************************************************************************
-Class:		Surface class implementation
-Purpose:	Provide floor and wall
-Author      Ted, using https://cs.lmu.edu/~ray/notes/openglexamples/ as an inital base
-Date:	    04/03/2020
-
-Note:       Implementation uses existing Location, RGBColor classes rather than primitives
-************************************************************************/
 //  globals
-
-//Ball balls[7];          //  seven balls in the example
 Surface fl(20, 0, 20), wall1(20, 20, 0), wall2(0, 20, 20), wall3(0, 20, 20), ceiling = fl;
 Camera camera;
 
@@ -326,15 +315,7 @@ void display() {
     wall2.draw();
     wall3.draw();
     ceiling.draw();
-    /*toolbox.draw();
-    desk.draw();
-    chair.draw();
-    cupboard.draw();
-    coutner.draw();*/
 
-  /*  for (int i = 0; i < sizeof balls / sizeof(Ball); i++) {
-        balls[i].update();
-    }*/
     glFlush();
     glutSwapBuffers();
 }

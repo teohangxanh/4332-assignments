@@ -7,7 +7,7 @@ using namespace std;
 /*************************************
 Function:   Object class file
 Purpose:    create an object
-Author:      https://cs.lmu.edu/~ray/notes/openglexamples/ as modified to incorporate RGBColor class
+Author:      https://cs.lmu.edu/~ray/notes/openglexamples/ as modified by Ted to incorporate RGBColor class
 Date:   04/03/2020
 *************************************/
 class Object {
