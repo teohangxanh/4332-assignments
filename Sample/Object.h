@@ -25,8 +25,8 @@ public:
     RGBColor getColor();
     vector<GLfloat[3]> getDimension();
 
-    void create();
-    void trans_and_rot(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz);
+    void create(GLfloat scalex, GLfloat scaley, GLfloat scalez);
+    void transRotScale(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz, GLfloat scalex, GLfloat scaley, GLfloat scalez);
 
     //  support function for create to identify the tile list
     void draw();

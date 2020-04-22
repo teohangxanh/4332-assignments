@@ -30,7 +30,7 @@ vector<GLfloat[3]> Object::getDimension() {
 	return dimension;
 }
 
-void Object::create() {
+void Object::create(GLfloat scalex, GLfloat scaley, GLfloat scalez) {
     glNewList(glGenLists(1), GL_COMPILE);
     GLfloat lightPosition[] = { 4, 3, 7, 1 };
     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
@@ -47,16 +47,17 @@ void Object::create() {
             glEnd();
         }
     }
+    glScalef(scalex, scaley, scalez);
     glEnd();
     glEndList();
 }
 
-void Object::trans_and_rot(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz)
+void Object::transRotScale(GLfloat transx, GLfloat transy, GLfloat transz, GLfloat rotx, GLfloat roty, GLfloat rotz, GLfloat scalex, GLfloat scaley, GLfloat scalez)
 {
     glPushMatrix();
     glTranslatef(transx, transy, transz);
     glRotatef(rotx, roty, rotz, 0);
-    create();
+    create(scalex, scaley, scalez);
     glPopMatrix();
 }
 
